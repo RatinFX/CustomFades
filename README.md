@@ -1,7 +1,7 @@
 # CustomFades
 Vegas Pro script for adding fade in/out to selected media
 
-![](preview.png)
+![](previewPic.png)
 
 ### Info
 You can set the Fade In/Out:
