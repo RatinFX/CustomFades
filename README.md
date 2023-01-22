@@ -12,10 +12,13 @@ You can set the Fade In/Out:
   - It doesn't change the Curve Type by default
   - Use the CheckBox if you want to change it
   
-Older tutorial video: https://www.youtube.com/watch?v=eJtW4jLYJ8I
+Video: https://www.youtube.com/watch?v=eJtW4jLYJ8I
 
 ### Download
+Releases: https://github.com/RatinA0/CustomFades/releases
+
 `CustomFades13.dll` for SONY Vegas Pro 13 and below
+
 `CustomFades14.dll` for MAGIX Vegas Pro 14 and above
 
 ### Run
@@ -29,7 +32,9 @@ Add to the toolbar: Options -> Customize Toolbar
 Import the correct reference:
 
 Project -> Add reference -> Browse -> Your VEGAS install folder ->
+
 - `ScriptPortal.Vegas.dll` for SONY Vegas Pro 13 and below
+
 - `Sony.Vegas.dll` for MAGIX Vegas Pro 14 and above
 
 ### TODO
