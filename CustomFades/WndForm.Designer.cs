@@ -344,7 +344,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "WndForm";
-            this.Text = "Add custom fade in/out";
+            this.Text = "Custom fade in/out";
             this.FadeOutGroup.ResumeLayout(false);
             this.FadeOutGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudFadeOut)).EndInit();
