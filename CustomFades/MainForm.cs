@@ -49,7 +49,7 @@ namespace CustomFades
             Helper.ShowAbout(
                 "Quickly Increase, Decrease or Set the length of the Fade in or Fade out on the selected Events" + "\n\n" +
                 "You can select between Frames and Seconds to calculate the new lengths" + "\n\n" +
-                "Enable Change curve if you want to change the Fade type to:"+"\n"+
+                "Enable Change curve if you want to change the Fade type to:" + "\n" +
                 "- Fast, Linear, Sharp, Slow or Smooth."
             );
         }
@@ -237,30 +237,30 @@ namespace CustomFades
             if (fadeValue < 0)
                 return;
 
-            if (fadeToZeroBool && fadeValue == 0)
+            if (fadeValue == 0)
             {
-                fade.Length = Timecode.FromFrames(0);
+                if (fadeToZeroBool)
+                    fade.Length = Timecode.FromFrames(0);
+
                 return;
             }
 
             switch (fadeTimecode)
             {
+                // ComboBox was empty
+                default:
                 // Count in frames
                 case "Frames":
-                    FrameCalculator(addBool, reduceBool, fade, Timecode.FromFrames(fadeValue));
+                    FrameCalculator(addBool, reduceBool, fadeToZeroBool, fade, Timecode.FromFrames(fadeValue));
                     break;
                 // Count in seconds
                 case "Seconds":
-                    FrameCalculator(addBool, reduceBool, fade, Timecode.FromSeconds(fadeValue));
-                    break;
-                // ComboBox was empty -> Count in frames
-                default:
-                    FrameCalculator(addBool, reduceBool, fade, Timecode.FromFrames(fadeValue));
+                    FrameCalculator(addBool, reduceBool, fadeToZeroBool, fade, Timecode.FromSeconds(fadeValue));
                     break;
             }
         }
 
-        void FrameCalculator(bool addBool, bool reduceBool, Fade fade, Timecode timecode)
+        void FrameCalculator(bool addBool, bool reduceBool, bool fadeToZeroBool, Fade fade, Timecode timecode)
         {
             if (reduceBool)
                 fade.Length -= timecode;

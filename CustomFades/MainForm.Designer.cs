@@ -72,7 +72,7 @@
             this.FadeOutGroup.Controls.Add(this.cbxFOTimecode);
             this.FadeOutGroup.ForeColor = System.Drawing.Color.White;
             this.FadeOutGroup.Location = new System.Drawing.Point(12, 144);
-            this.FadeOutGroup.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.FadeOutGroup.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.FadeOutGroup.Name = "FadeOutGroup";
             this.FadeOutGroup.Size = new System.Drawing.Size(329, 102);
             this.FadeOutGroup.TabIndex = 15;
@@ -103,13 +103,13 @@
             this.cbxFOReduceLength.UseVisualStyleBackColor = true;
             this.cbxFOReduceLength.CheckedChanged += new System.EventHandler(this.cbxFOReduceLength_CheckedChanged);
             // 
-            // lbFadeOut
+            // lblFO
             // 
             this.lblFO.AutoSize = true;
             this.lblFO.ForeColor = System.Drawing.Color.White;
             this.lblFO.Location = new System.Drawing.Point(8, 20);
             this.lblFO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFO.Name = "lbFadeOut";
+            this.lblFO.Name = "lblFO";
             this.lblFO.Size = new System.Drawing.Size(68, 13);
             this.lblFO.TabIndex = 0;
             this.lblFO.Text = "New Length:";
@@ -152,7 +152,7 @@
             this.lbFadeOutCurve.TabIndex = 2;
             this.lbFadeOutCurve.Text = "Curve type:";
             // 
-            // cbxFadeOutCurve
+            // cbxFOCurve
             // 
             this.cbxFOCurve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cbxFOCurve.Enabled = false;
@@ -167,7 +167,7 @@
             "Smooth"});
             this.cbxFOCurve.Location = new System.Drawing.Point(96, 69);
             this.cbxFOCurve.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxFOCurve.Name = "cbxFadeOutCurve";
+            this.cbxFOCurve.Name = "cbxFOCurve";
             this.cbxFOCurve.Size = new System.Drawing.Size(98, 21);
             this.cbxFOCurve.TabIndex = 5;
             this.cbxFOCurve.Text = "Smooth";
@@ -212,7 +212,8 @@
             this.FadeInGroup.Controls.Add(this.cbxFITimecode);
             this.FadeInGroup.Controls.Add(this.cbxChangeFICurveType);
             this.FadeInGroup.ForeColor = System.Drawing.Color.White;
-            this.FadeInGroup.Location = new System.Drawing.Point(12, 36);
+            this.FadeInGroup.Location = new System.Drawing.Point(12, 34);
+            this.FadeInGroup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.FadeInGroup.Name = "FadeInGroup";
             this.FadeInGroup.Size = new System.Drawing.Size(329, 102);
             this.FadeInGroup.TabIndex = 14;
@@ -243,13 +244,13 @@
             this.cbxFIReduceLength.UseVisualStyleBackColor = true;
             this.cbxFIReduceLength.CheckedChanged += new System.EventHandler(this.cbxFIReduceLength_CheckedChanged);
             // 
-            // lbFadeIn
+            // lblFI
             // 
             this.lblFI.AutoSize = true;
             this.lblFI.ForeColor = System.Drawing.Color.White;
             this.lblFI.Location = new System.Drawing.Point(8, 20);
             this.lblFI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFI.Name = "lbFadeIn";
+            this.lblFI.Name = "lblFI";
             this.lblFI.Size = new System.Drawing.Size(68, 13);
             this.lblFI.TabIndex = 0;
             this.lblFI.Text = "New Length:";
@@ -292,7 +293,7 @@
             this.lbFadeInCurve.TabIndex = 2;
             this.lbFadeInCurve.Text = "Curve type:";
             // 
-            // cbxFadeInCurve
+            // cbxFICurve
             // 
             this.cbxFICurve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cbxFICurve.Enabled = false;
@@ -307,7 +308,7 @@
             "Smooth"});
             this.cbxFICurve.Location = new System.Drawing.Point(96, 69);
             this.cbxFICurve.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxFICurve.Name = "cbxFadeInCurve";
+            this.cbxFICurve.Name = "cbxFICurve";
             this.cbxFICurve.Size = new System.Drawing.Size(98, 21);
             this.cbxFICurve.TabIndex = 5;
             this.cbxFICurve.Text = "Smooth";
@@ -345,10 +346,10 @@
             this.btRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(93)))), ((int)(((byte)(137)))));
             this.btRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btRun.ForeColor = System.Drawing.Color.White;
-            this.btRun.Location = new System.Drawing.Point(12, 256);
+            this.btRun.Location = new System.Drawing.Point(12, 254);
             this.btRun.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.btRun.Name = "btRun";
-            this.btRun.Size = new System.Drawing.Size(329, 26);
+            this.btRun.Size = new System.Drawing.Size(329, 28);
             this.btRun.TabIndex = 16;
             this.btRun.Text = "Run";
             this.btRun.UseVisualStyleBackColor = false;
