@@ -34,64 +34,62 @@ namespace CustomFades
         public MainForm()
         {
             InitializeComponent();
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            nudFadeIn.Select();
+            nudFI.Select();
+
+            Helper.ChangeTheme(menuStrip);
         }
 
-        private void btnRun_Click(object sender, EventArgs e)
+        private void tsmiCreatedByRatinFX_Click(object sender, EventArgs e)
         {
-            FadeInValue = (int)nudFadeIn.Value;
-            FadeOutValue = (int)nudFadeOut.Value;
-            FadeInTimecode = cbxFadeInTimecode.Text;
-            FadeOutTimecode = cbxFadeOutTimecode.Text;
-
-            if (changeFIC)
-                FadeInCurve = cbxFadeInCurve.Text;
-
-            if (changeFOC)
-                FadeOutCurve = cbxFadeOutCurve.Text;
-
-            DialogResult = DialogResult.OK;
-            Close();
-            Dispose();
+            Helper.OpenRatinFXWebsite();
         }
 
-        private void cbxChangeFadeInCurveType_CheckedChanged(object sender, EventArgs e)
+        private void tsmiAbout_Click(object sender, EventArgs e)
+        {
+            Helper.ShowAbout(
+                "Quickly Increase, Decrease or Set the length of the Fade in or Fade out on the selected Events" + "\n\n" +
+                "You can select between Frames and Seconds to calculate the new lengths" + "\n\n" +
+                "Enable Change curve if you want to change the Fade type to:"+"\n"+
+                "- Fast, Linear, Sharp, Slow or Smooth."
+            );
+        }
+
+        private void cbxChangeFICurveType_CheckedChanged(object sender, EventArgs e)
         {
             // Also change the curve type
-            changeFIC = cbxFadeInCurve.Enabled
-                = cbxChangeFadeInCurveType.Checked;
+            changeFIC = cbxFICurve.Enabled
+                = cbxChangeFICurveType.Checked;
         }
 
-        private void cbxChangeFadeOutCurveType_CheckedChanged(object sender, EventArgs e)
+        private void cbxChangeFOCurveType_CheckedChanged(object sender, EventArgs e)
         {
             // Also change the curve type
-            changeFOC = cbxFadeOutCurve.Enabled
-                = cbxChangeFadeOutCurveType.Checked;
+            changeFOC = cbxFOCurve.Enabled
+                = cbxChangeFOCurveType.Checked;
         }
 
-        private void cbxFadeInToZero_CheckedChanged(object sender, EventArgs e)
+        private void cbxFIToZero_CheckedChanged(object sender, EventArgs e)
         {
-            FITZ = cbxFadeInToZero.Checked;
+            FITZ = cbxFIToZero.Checked;
 
             // Reset fade length
             if (FITZ)
-                nudFadeIn.Value = 0;
+                nudFI.Value = 0;
 
-            nudFadeIn.Enabled = cbxFadeInTimecode.Enabled = cbxFIAddLength.Enabled = cbxFIReduceLength.Enabled
-                = !cbxFadeInToZero.Checked;
+            nudFI.Enabled = cbxFITimecode.Enabled = cbxFIAddLength.Enabled = cbxFIReduceLength.Enabled
+                = !cbxFIToZero.Checked;
         }
 
-        private void cbxFadeOutToZero_CheckedChanged(object sender, EventArgs e)
+        private void cbxFOToZero_CheckedChanged(object sender, EventArgs e)
         {
-            FOTZ = cbxFadeOutToZero.Checked;
+            FOTZ = cbxFOToZero.Checked;
 
             // Reset fade length
             if (FOTZ)
-                nudFadeOut.Value = 0;
+                nudFO.Value = 0;
 
-            nudFadeOut.Enabled = cbxFadeOutTimecode.Enabled = cbxFOAddLength.Enabled = cbxFOReduceLength.Enabled
-                = !cbxFadeOutToZero.Checked;
+            nudFO.Enabled = cbxFOTimecode.Enabled = cbxFOAddLength.Enabled = cbxFOReduceLength.Enabled
+                = !cbxFOToZero.Checked;
         }
 
         private void SetLength(Label fadeLabel, string labelText, CheckBox checkBox_checked, CheckBox checkBox_other, CheckBox checkBox_setZero)
@@ -115,44 +113,47 @@ namespace CustomFades
         private void cbxFIAddLength_CheckedChanged(object sender, EventArgs e)
         {
             // Add-to instead of Set length
-            SetLength(lbFadeIn, "Increase by:", cbxFIAddLength, cbxFIReduceLength, cbxFadeInToZero);
+            SetLength(lblFI, "Increase by:", cbxFIAddLength, cbxFIReduceLength, cbxFIToZero);
             AFIL = cbxFIAddLength.Checked;
         }
 
         private void cbxFOAddLength_CheckedChanged(object sender, EventArgs e)
         {
             // Add-to instead of Set length
-            SetLength(lbFadeOut, "Increase by:", cbxFOAddLength, cbxFOReduceLength, cbxFadeOutToZero);
+            SetLength(lblFO, "Increase by:", cbxFOAddLength, cbxFOReduceLength, cbxFOToZero);
             AFOL = cbxFOAddLength.Checked;
         }
 
         private void cbxFIReduceLength_CheckedChanged(object sender, EventArgs e)
         {
             // Reduce instead of Set length
-            SetLength(lbFadeIn, "Reduce by:", cbxFIReduceLength, cbxFIAddLength, cbxFadeInToZero);
+            SetLength(lblFI, "Reduce by:", cbxFIReduceLength, cbxFIAddLength, cbxFIToZero);
             RFIL = cbxFIReduceLength.Checked;
         }
 
         private void cbxFOReduceLength_CheckedChanged(object sender, EventArgs e)
         {
             // Reduce instead of Set length
-            SetLength(lbFadeOut, "Reduce by:", cbxFOReduceLength, cbxFOAddLength, cbxFadeOutToZero);
+            SetLength(lblFO, "Reduce by:", cbxFOReduceLength, cbxFOAddLength, cbxFOToZero);
             RFOL = cbxFOReduceLength.Checked;
         }
 
-        private void tsmiCreator_Click(object sender, EventArgs e)
+        private void btnRun_Click(object sender, EventArgs e)
         {
-            Processes.OpenUrl("https://ratinfx.github.io");
-        }
+            FadeInValue = (int)nudFI.Value;
+            FadeOutValue = (int)nudFO.Value;
+            FadeInTimecode = cbxFITimecode.Text;
+            FadeOutTimecode = cbxFOTimecode.Text;
 
-        private void tsmiAbout_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("- - - - - - - - - - - What can you do? - - - - - - - - - - -" +
-                   "\n\n" + "Add, Reduce or Set the Length (in either Frames or Seconds)" +
-                     "\n" + "- Length won't change if it's 0" +
-                     "\n" + "- Use the CheckBox if you want the Fade In/Out length to be 0" +
-                   "\n\n" + "Change Curve Type to: Fast, Linear, Sharp, Slow, Smooth" +
-                     "\n" + "- Don't change by default", "Help", MessageBoxButtons.OK);
+            if (changeFIC)
+                FadeInCurve = cbxFICurve.Text;
+
+            if (changeFOC)
+                FadeOutCurve = cbxFOCurve.Text;
+
+            DialogResult = DialogResult.OK;
+            Close();
+            Dispose();
         }
     }
 
