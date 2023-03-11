@@ -22,13 +22,15 @@ Enable **Change curve** if you want to change the **Fade type** to:
 - Smooth
 
 ## How to use
-1. Download "13 and below" or "14 and above" depending on your VEGAS Pro version
+
+1. Download "...13" or "...14" depending on your `VEGAS Pro version`
 2. Find or create a folder called Vegas Script Menu inside your Documents folder like this:
     - `C:\Users\USER_NAME\Documents\Vegas Script Menu`
 3. Place the .dll file, or Extract the contents of the .zip file into the folder above
 4. Start VEGAS Pro and you can find the Script at `Tools - Scripting`
 
 ## Build
+
 Import the correct reference:
 
 Project -> Add reference -> Browse -> Your VEGAS install folder ->
