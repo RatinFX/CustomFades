@@ -1,14 +1,12 @@
+using ScriptPortal.Vegas;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using ScriptPortal.Vegas;
-//using Sony.Vegas;
 
 namespace CustomFades
 {
     // Form to show on opening the Script
-    public partial class WndForm : Form
+    public partial class MainForm : Form
     {
         public int FadeInValue;
         public int FadeOutValue;
@@ -33,7 +31,7 @@ namespace CustomFades
         public bool RFIL;
         public bool RFOL;
 
-        public WndForm()
+        public MainForm()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -142,16 +140,19 @@ namespace CustomFades
             RFOL = cbxFOReduceLength.Checked;
         }
 
-        private void btnHelp_Click(object sender, EventArgs e)
+        private void tsmiCreator_Click(object sender, EventArgs e)
+        {
+            Processes.OpenUrl("https://ratinfx.github.io");
+        }
+
+        private void tsmiAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("- - - - - - - - - - - What can you do? - - - - - - - - - - -" +
-                   "\n\n" + "You can set the Fade In/Out:" +
-                   "\n\n" + "- Length (in either Frames or Seconds)" +
-                     "\n" + "  > If Length stays 0 -> it stays the same" +
-                     "\n" + "  > Use the CheckBox if you want the Fade In/Out length to be 0" +
-                   "\n\n" + "- Curve Type (Fast, Linear, Sharp, Slow, Smooth)" +
-                     "\n" + "  > It doesn't change the Curve Type by default" +
-                     "\n" + "  > Use the CheckBox if you want to change it", "Help", MessageBoxButtons.OK);
+                   "\n\n" + "Add, Reduce or Set the Length (in either Frames or Seconds)" +
+                     "\n" + "- Length won't change if it's 0" +
+                     "\n" + "- Use the CheckBox if you want the Fade In/Out length to be 0" +
+                   "\n\n" + "Change Curve Type to: Fast, Linear, Sharp, Slow, Smooth" +
+                     "\n" + "- Don't change by default", "Help", MessageBoxButtons.OK);
         }
     }
 
@@ -176,7 +177,7 @@ namespace CustomFades
             bool RFIL;
             bool RFOL;
 
-            using (WndForm form = new WndForm())
+            using (MainForm form = new MainForm())
             {
                 DialogResult result = form.ShowDialog();
                 if (result == DialogResult.OK)

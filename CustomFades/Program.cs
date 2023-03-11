@@ -16,7 +16,7 @@ namespace CustomFades
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new WndForm());
+			Application.Run(new MainForm());
 		}
 	}
 }
